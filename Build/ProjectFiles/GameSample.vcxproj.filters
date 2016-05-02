@@ -9,37 +9,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameSampleStd.h">
+    <ClCompile Include="..\..\Source\GameSample.cpp">
+      <Filter>GameSample</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GameSampleController.cpp">
+      <Filter>GameSample</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GameSampleEvents.cpp">
+      <Filter>GameSample</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GameSampleView.cpp">
+      <Filter>GameSample</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Msvc\GameSampleStd.cpp">
       <Filter>Application</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSample.h">
-      <Filter>Application</Filter>
-    </ClInclude>
-    <ClInclude Include="..\GameSampleView.h">
-      <Filter>GameSample</Filter>
-    </ClInclude>
-    <ClInclude Include="..\GameSampleController.h">
-      <Filter>GameSample</Filter>
-    </ClInclude>
-    <ClInclude Include="..\GameSampleEvents.h">
-      <Filter>GameSample</Filter>
-    </ClInclude>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameSampleStd.cpp">
+    <ClInclude Include="..\..\Source\GameSampleController.h">
+      <Filter>GameSample</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GameSampleEvents.h">
+      <Filter>GameSample</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GameSampleView.h">
+      <Filter>GameSample</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Msvc\GameSample.h">
       <Filter>Application</Filter>
-    </ClCompile>
-    <ClCompile Include="..\GameSample.cpp">
-      <Filter>GameSample</Filter>
-    </ClCompile>
-    <ClCompile Include="..\GameSampleController.cpp">
-      <Filter>GameSample</Filter>
-    </ClCompile>
-    <ClCompile Include="..\GameSampleView.cpp">
-      <Filter>GameSample</Filter>
-    </ClCompile>
-    <ClCompile Include="..\GameSampleEvents.cpp">
-      <Filter>GameSample</Filter>
-    </ClCompile>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Msvc\GameSampleStd.h">
+      <Filter>Application</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
