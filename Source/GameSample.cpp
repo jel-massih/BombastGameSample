@@ -20,7 +20,8 @@ INT WINAPI wWinMain(HINSTANCE hInstance,
 	return BombastEngine(hInstance, hPrevInstance, NULL, lpCmdLine);
 }
 
-std::string ROOT_GAME_PATH = "../../../../Engine/";
+std::string ROOT_ENGINE_PATH = "../../../../../Bombast Technology/BombastEngine/Engine/";
+std::string ROOT_GAME_PATH = "../../../";
 
 CoreGameLogic *GameSampleApp::VCreateGameAndView()
 {
@@ -69,7 +70,7 @@ void GameSampleLogic::VChangeState(CoreGameState newState)
 				IGameView* pView = *it;
 				if (pView->VGetType() == GameView_Human)
 				{
-					Actor* pActor = VCreateActor("actors\\engine\\player_skateboard.xml", NULL);
+					Actor* pActor = VCreateActor("gamesample.actors.player_skateboard.xml", NULL);
 					if (pActor)
 					{
 						std::shared_ptr<EvtData_SpawnPlayer> pSpawnPlayerEvent(BE_NEW EvtData_SpawnPlayer(pActor->GetId(), pView->VGetId()));

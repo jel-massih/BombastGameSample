@@ -6,9 +6,9 @@
   	<DebugConsole enabled="true" />
 	  <Logging path="../../../Logs" filename="Output.log"></Logging>
   </Debugging>
-  <Resources>
+  <Resources> 
     <AdditionalContentPaths>
-      <ContentDirectory>../../../Content</ContentDirectory>
+      <ContentDirectory>../../../Content/</ContentDirectory>
     </AdditionalContentPaths>
   </Resources>
 </Options>
