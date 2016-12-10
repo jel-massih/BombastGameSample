@@ -1,6 +1,6 @@
 <Options>
   <Graphics renderer="Direct3D 11" fullscreen="false" x="0" y="500" width="1200" height="768" vsync="true" />
-  <Physics engine="bombast" visualize="true" />
+  <Physics engine="physx" visualize="true" />
   <World level="GameSample.World.world.bmap" />
   <Debugging>
   	<DebugConsole enabled="true" />
