@@ -22,3 +22,4 @@
 *.log
 *.pch
 *.VC.db
+Build/ProjectFiles/Temp/

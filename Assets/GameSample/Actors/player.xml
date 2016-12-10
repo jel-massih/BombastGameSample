@@ -1,0 +1,12 @@
+<Actor type="player" resource="GameSmaple.Actors.player.xml">
+	<TransformComponent>
+        <Scale x="0.2" y="0.2" z="0.2" />
+    </TransformComponent>
+	<MeshRenderComponent>
+        <Mesh path="EngineResources.Meshes.cube.bmdl"></Mesh>
+        <Materials>
+			<Material path="EngineResources.Materials.box_mat.bmtl"/>
+			<Material path="EngineResources.Materials.box_mat.bmtl"/>
+        </Materials>
+    </MeshRenderComponent>
+</Actor>

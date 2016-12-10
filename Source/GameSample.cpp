@@ -70,9 +70,10 @@ void GameSampleLogic::VChangeState(CoreGameState newState)
 				IGameView* pView = *it;
 				if (pView->VGetType() == GameView_Human)
 				{
-					Actor* pActor = VCreateActor("gamesample.actors.player_skateboard.xml", NULL);
+					Actor* pActor = VCreateActor("gamesample.actors.player.xml", NULL);
 					if (pActor)
 					{
+						pActor->GetComponent<TransformComponent>(TransformComponent::g_Name)->SetPosition(Vec3(0, 1, 0));
 						std::shared_ptr<EvtData_SpawnPlayer> pSpawnPlayerEvent(BE_NEW EvtData_SpawnPlayer(pActor->GetId(), pView->VGetId()));
 						IEventManager::Get()->VTriggerEvent(pSpawnPlayerEvent);
 					}
