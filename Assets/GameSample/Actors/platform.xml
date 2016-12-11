@@ -1,0 +1,21 @@
+<Actor type="platform">
+	<TransformComponent>
+		<Scale x="1" y="0.2" z="2"/>
+	</TransformComponent>
+  <MeshRenderComponent>
+    <Mesh path="EngineResources.Meshes.cube.bmdl"></Mesh>
+    <Materials>
+			<Material path="EngineResources.Materials.platform_mat.bmtl"/>
+			<Material path="EngineResources.Materials.platform_mat.bmtl"/>
+  	</Materials>
+  </MeshRenderComponent>
+
+    <PhysicsComponent>
+        <Shape>Box</Shape>
+        <Density>oak</Density>
+        <PhysicsMaterial>Normal</PhysicsMaterial>
+        <GravityEnabled>false</GravityEnabled>
+        <LinearDamping>1</LinearDamping>
+        <AngularDamping>1</AngularDamping>
+    </PhysicsComponent>
+</Actor>
