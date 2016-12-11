@@ -119,15 +119,15 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BombastEngineDir)\Source;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NDEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(BombastEngineDir)\Source;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\include;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(BombastEngineDir)\Source\Libraries\zlib128\lib\;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\lib\$(PlatformName)\;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.2\lib\$(PlatformName)\;$(BombastEngineDir)\Lib\$(PlatformName)\$(Configuration)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>lua52.lib;zdll.lib;d3d11.lib;dxgi.lib;D3dcompiler.lib;dxguid.lib;dinput8.lib;pdh.lib;BombastEngine.lib;BombastPhysics.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BombastEngineDir)\Source\Libraries\zlib128\lib\;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\lib\$(PlatformName)\;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.3\lib\$(PlatformName)\$(Configuration)\;$(BombastEngineDir)\Lib\$(PlatformName)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>lua52.lib;zdll.lib;d3d11.lib;dxgi.lib;D3dcompiler.lib;dxguid.lib;dinput8.lib;pdh.lib;BombastEngine.lib;BombastPhysics.lib;winmm.lib;PhysX3CHECKED_x86.lib;PhysX3CommonCHECKED_x86.lib;PhysX3ExtensionsCHECKED.lib;PhysX3CookingCHECKED_x86.lib;PxTaskCHECKED.lib;PhysX3CharacterKinematicCHECKED_x86.lib;PhysXVisualDebuggerSDKCHECKED.lib;PhysXProfileSDKCHECKED.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -137,13 +137,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BombastEngineDir)\Source;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(BombastEngineDir)\Source;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\include;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(BombastEngineDir)\Source\Libraries\zlib128\lib\;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\lib\$(PlatformName)\;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.2\lib\$(PlatformName)\;$(BombastEngineDir)\Lib\$(PlatformName)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(BombastEngineDir)\Source\Libraries\zlib128\lib\;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\lib\$(PlatformName)\;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.3\lib\$(PlatformName)\$(Configuration)\;$(BombastEngineDir)\Lib\$(PlatformName)\$(Configuration)\</AdditionalLibraryDirectories>
       <AdditionalDependencies>lua52.lib;zdll.lib;d3d11.lib;dxgi.lib;D3dcompiler.lib;dxguid.lib;dinput8.lib;pdh.lib;BombastEngine.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -156,7 +156,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BombastEngineDir)\Source;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BombastEngineDir)\Source;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\include;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/DEBUG %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
@@ -166,7 +166,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>lua52.lib;zdll.lib;d3d11.lib;dxgi.lib;D3dcompiler.lib;dxguid.lib;dinput8.lib;pdh.lib;BombastEngine.lib;BombastPhysics.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(BombastEngineDir)\Source\Libraries\zlib128\lib\;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\lib\$(PlatformName)\;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.2\lib\$(PlatformName)\;$(BombastEngineDir)\Lib\$(PlatformName)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(BombastEngineDir)\Source\Libraries\zlib128\lib\;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\lib\$(PlatformName)\;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.3\lib\$(PlatformName)\$(Configuration)\;$(BombastEngineDir)\Lib\$(PlatformName)\$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -178,7 +178,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BombastEngineDir)\Source;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BombastEngineDir)\Source;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\include;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -187,7 +187,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>lua52.lib;zdll.lib;d3d11.lib;dxgi.lib;D3dcompiler.lib;dxguid.lib;dinput8.lib;pdh.lib;BombastEngine.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(BombastEngineDir)\Source\Libraries\zlib128\lib\;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\lib\$(PlatformName)\;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.2\lib\$(PlatformName)\;$(BombastEngineDir)\Lib\$(PlatformName)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(BombastEngineDir)\Source\Libraries\zlib128\lib\;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\lib\$(PlatformName)\;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.3\lib\$(PlatformName)\$(Configuration)\;$(BombastEngineDir)\Lib\$(PlatformName)\$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
