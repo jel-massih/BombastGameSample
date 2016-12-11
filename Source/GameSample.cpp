@@ -73,7 +73,7 @@ void GameSampleLogic::VChangeState(CoreGameState newState)
 					Actor* pActor = VCreateActor("gamesample.actors.player.xml", NULL);
 					if (pActor)
 					{
-						pActor->GetComponent<TransformComponent>(TransformComponent::g_Name)->SetPosition(Vec3(0, 4, 0));
+						pActor->GetComponent<TransformComponent>(TransformComponent::g_Name)->SetPosition(Vec3(0, 3, 0));
 						std::shared_ptr<EvtData_SpawnPlayer> pSpawnPlayerEvent(BE_NEW EvtData_SpawnPlayer(pActor->GetId(), pView->VGetId()));
 						IEventManager::Get()->VTriggerEvent(pSpawnPlayerEvent);
 					}
@@ -184,7 +184,10 @@ void GameSampleLogic::StartMoveForwardDelegate(EventDataPtr pEventData)
 	if (pTarget)
 	{
 		TransformComponent* pTransformComponent = pTarget->GetComponent<TransformComponent>(TransformComponent::g_Name);
-		pTransformComponent->MoveForward(pStartForwardData->GetAcceleration());
+		if (pTransformComponent)
+		{
+			m_pGamePhysics->VApplyForce(pTransformComponent->GetTransform().GetDirection(), 20, pStartForwardData->GetActorId());
+		}
 	}
 }
 
