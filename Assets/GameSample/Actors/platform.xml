@@ -1,6 +1,6 @@
 <Actor type="platform">
 	<TransformComponent>
-		<Scale x="1" y="0.2" z="2"/>
+        <Scale x="2" y="0.2" z="2"/>
 	</TransformComponent>
   <MeshRenderComponent>
     <Mesh path="EngineResources.Meshes.cube.bmdl"></Mesh>
@@ -12,10 +12,11 @@
 
     <PhysicsComponent>
         <Shape>Box</Shape>
-        <Density>oak</Density>
-        <PhysicsMaterial>Normal</PhysicsMaterial>
+        <Density>Maximum</Density>
+        <PhysicsMaterial>Infinite</PhysicsMaterial>
         <GravityEnabled>false</GravityEnabled>
         <LinearDamping>1</LinearDamping>
         <AngularDamping>1</AngularDamping>
+        <BodyType>Dynamic</AngularDamping>
     </PhysicsComponent>
 </Actor>

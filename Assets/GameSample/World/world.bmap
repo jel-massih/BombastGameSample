@@ -10,7 +10,7 @@
     <StaticActors>
       <Actor resource="EngineResources.Actors.directionalLight.xml"/>
 
-      <Actor resource="EngineResources.Actors.platform.xml">
+      <Actor resource="GameSample.Actors.platform.xml">
         <TransformComponent>
           <Position x="0" y="0" z="0"/>
         </TransformComponent>

@@ -73,7 +73,7 @@ void GameSampleLogic::VChangeState(CoreGameState newState)
 					Actor* pActor = VCreateActor("gamesample.actors.player.xml", NULL);
 					if (pActor)
 					{
-						pActor->GetComponent<TransformComponent>(TransformComponent::g_Name)->SetPosition(Vec3(0, 1, 0));
+						pActor->GetComponent<TransformComponent>(TransformComponent::g_Name)->SetPosition(Vec3(0, 4, 0));
 						std::shared_ptr<EvtData_SpawnPlayer> pSpawnPlayerEvent(BE_NEW EvtData_SpawnPlayer(pActor->GetId(), pView->VGetId()));
 						IEventManager::Get()->VTriggerEvent(pSpawnPlayerEvent);
 					}
