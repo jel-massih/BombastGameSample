@@ -145,9 +145,9 @@ bool GameSampleHumanView::VLoadGameDelegate(rapidxml::xml_node<>* pLevelData)
 	{
 		return false;
 	}
-	m_pCamera->SetPosition(Vec3(0, 2, -2));
+	m_pCamera->SetPosition(Vec3(-10, 7, -19));
 
-	m_pFreeCameraController = BE_NEW MovementController(m_pCamera, XMConvertToRadians(-15), XMConvertToRadians(0), true);
+	m_pFreeCameraController = BE_NEW MovementController(m_pCamera, XMConvertToRadians(-15), XMConvertToRadians(30), true);
 
 	m_pKeyboardHandler = m_pFreeCameraController;
 	m_pMouseHandler = m_pFreeCameraController;
