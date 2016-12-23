@@ -105,10 +105,10 @@ LRESULT CALLBACK GameSampleHumanView::VOnMsgProc(AppMsg msg)
 		}
 		else if (msg.m_wParam == VK_F12 || msg.m_wParam == VK_ESCAPE)
 		{
-			/*if (MessageBox(g_pApp->GetHwnd(), L"Are you sure you want to quit?", L"Quit", MB_YESNO) == IDYES)
+			if (MessageBox(g_pApp->GetHwnd(), L"Are you sure you want to quit?", L"Quit", MB_YESNO) == IDYES)
 			{
 				g_pApp->AbortGame();
-			}*/
+			}
 
 			return 1;
 		}
