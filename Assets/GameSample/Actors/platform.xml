@@ -1,7 +1,7 @@
 <Actor type="platform">
 	<TransformComponent>
         <Scale x="10" y="0.2" z="10"/>
-        <YawPitchRoll x="0" y="0" z="25" />
+        <YawPitchRoll x="0" y="0" z="0" />
 	</TransformComponent>
   <MeshRenderComponent>
     <Mesh path="EngineResources.Meshes.cube.bmdl"></Mesh>

@@ -93,20 +93,23 @@ LRESULT CALLBACK GameSampleHumanView::VOnMsgProc(AppMsg msg)
 		}
 		else if (msg.m_wParam == VK_F9)
 		{
-			m_pKeyboardHandler = m_pPlayerController;
-			m_pMouseHandler = m_pPlayerController;
-			m_pCamera->SetViewTarget(m_pControlledActor);
-			m_pCamera->SetFollowTarget(m_pControlledActor);
-			ReleaseCapture();
-			return 1;
-		}
-		else if (msg.m_wParam == VK_F11)
-		{
-			m_pKeyboardHandler = m_pFreeCameraController;
-			m_pMouseHandler = m_pFreeCameraController;
-			m_pCamera->ClearFollowTarget();
-			m_pCamera->ClearViewTarget();
-			SetCapture(g_pApp->GetHwnd());
+			if (m_pKeyboardHandler == m_pPlayerController)
+			{
+				m_pKeyboardHandler = m_pFreeCameraController;
+				m_pMouseHandler = m_pFreeCameraController;
+				m_pCamera->ClearFollowTarget();
+				m_pCamera->ClearViewTarget();
+				SetCapture(g_pApp->GetHwnd());
+			}
+			else
+			{
+				m_pKeyboardHandler = m_pPlayerController;
+				m_pMouseHandler = m_pPlayerController;
+				m_pCamera->SetViewTarget(m_pControlledActor);
+				m_pCamera->SetFollowTarget(m_pControlledActor);
+				ReleaseCapture();
+			}
+			
 			return 1;
 		}
 		else if (msg.m_wParam == VK_F12 || msg.m_wParam == VK_ESCAPE)
