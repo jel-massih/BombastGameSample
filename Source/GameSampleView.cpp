@@ -187,12 +187,12 @@ void GameSampleHumanView::VSetControlledActor(ActorId actorId)
 	SAFE_DELETE(m_pPlayerController);
 
 	m_pPlayerController = BE_NEW GameSampleController(m_pControlledActor);
-	//m_pKeyboardHandler = m_pPlayerController;
-	//m_pMouseHandler = m_pPlayerController;
+	m_pKeyboardHandler = m_pPlayerController;
+	m_pMouseHandler = m_pPlayerController;
 
-	//m_pCamera->SetViewTarget(m_pControlledActor);
-	//m_pCamera->SetFollowTarget(m_pControlledActor);
-	//m_pCamera->SetCameraOffset(Vec4(0, 5, 8, 0));
+	m_pCamera->SetViewTarget(m_pControlledActor);
+	m_pCamera->SetFollowTarget(m_pControlledActor);
+	m_pCamera->SetCameraOffset(Vec4(0, 5, 8, 0));
 }
 
 void GameSampleHumanView::SetControlledActorDelegate(EventDataPtr pEventData)
