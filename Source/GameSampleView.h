@@ -21,7 +21,7 @@ public:
 
 
 protected:
-	bool m_bShowUI, m_bShowGrid;
+	bool m_bShowUI, m_bShowGrid, m_bShowDebugPhysics;
 	std::wstring m_gameplayText;
 
 	GameSampleController* m_pPlayerController;

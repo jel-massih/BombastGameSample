@@ -21,6 +21,7 @@ HumanView(renderer)
 	m_pGrid = nullptr;
 	m_bShowUI = true;
 	m_bShowGrid = false;
+	m_bShowDebugPhysics = false;
 	RegisterAllDelegates();
 }
 
@@ -79,6 +80,11 @@ LRESULT CALLBACK GameSampleHumanView::VOnMsgProc(AppMsg msg)
 		else if (msg.m_wParam == VK_F5)
 		{
 			g_pApp->GetGraphicsManager()->GetRenderer()->VToggleFillMode();
+		}
+		else if (msg.m_wParam == VK_F7)
+		{
+			g_pApp->GetGameLogic()->VGetGamePhysics()->VSetDebugVisualizationEnabled(!m_bShowDebugPhysics);
+			m_bShowDebugPhysics = !m_bShowDebugPhysics;
 		}
 		else if (msg.m_wParam == VK_F8)
 		{
