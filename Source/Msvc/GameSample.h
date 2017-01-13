@@ -1,5 +1,10 @@
 #pragma once
 
+namespace physx
+{
+	class PxControllerManager;
+}
+
 class GameSampleApp : public BombastApp
 {
 protected:
@@ -16,6 +21,7 @@ protected:
 class GameSampleLogic : public CoreGameLogic
 {
 protected:
+	physx::PxControllerManager* m_pControllerManager;
 
 public:
 	GameSampleLogic();

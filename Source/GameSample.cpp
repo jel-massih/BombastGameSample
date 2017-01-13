@@ -10,6 +10,8 @@
 #include "Msvc\GameSample.h"
 #include "GameSampleView.h"
 
+#include "characterkinematic/PxControllerManager.h"
+
 GameSampleApp g_GameSampleApp;
 
 INT WINAPI wWinMain(HINSTANCE hInstance,
@@ -33,6 +35,8 @@ CoreGameLogic *GameSampleApp::VCreateGameAndView()
 
 GameSampleLogic::GameSampleLogic()
 {
+	m_pControllerManager = nullptr;
+
 	m_pGamePhysics = CreateGamePhysics(g_pApp->m_options.m_physicsEngine);
 	m_pGamePhysics->VSetDebugVisualizationEnabled(g_pApp->m_options.m_bVisualizeDebugPhysics);
 	RegisterAllDelegates();

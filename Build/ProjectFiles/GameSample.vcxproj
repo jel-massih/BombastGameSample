@@ -20,17 +20,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\GameSample.cpp" />
-    <ClCompile Include="..\..\Source\GameSampleController.cpp" />
     <ClCompile Include="..\..\Source\GameSampleEvents.cpp" />
     <ClCompile Include="..\..\Source\GameSampleView.cpp" />
     <ClCompile Include="..\..\Source\Msvc\GameSampleStd.cpp" />
+    <ClCompile Include="..\..\Source\Player\GSPlayerCharacter.cpp" />
+    <ClCompile Include="..\..\Source\Player\GSPlayerController.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\GameSampleController.h" />
     <ClInclude Include="..\..\Source\GameSampleEvents.h" />
     <ClInclude Include="..\..\Source\GameSampleView.h" />
     <ClInclude Include="..\..\Source\Msvc\GameSample.h" />
     <ClInclude Include="..\..\Source\Msvc\GameSampleStd.h" />
+    <ClInclude Include="..\..\Source\Player\GSPlayerCharacter.h" />
+    <ClInclude Include="..\..\Source\Player\GSPlayerController.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FCC5A23D-02B5-4049-9257-F4E58F9474FA}</ProjectGuid>
@@ -119,7 +121,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NDEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(BombastEngineDir)\Source;$(BombastEngineDir)\Source\Libraries\lua-5.2.3\include;$(BombastEngineDir)\Source\Libraries\PhysX-3.3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>

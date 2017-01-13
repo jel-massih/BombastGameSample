@@ -3,7 +3,8 @@
 #include "Game/HumanView.h"
 
 class MovementController;
-class GameSampleController;
+class GSPlayerController;
+class GSPlayerCharacter;
 class D3D11GridNode;
 
 class GameSampleHumanView : public HumanView
@@ -24,9 +25,11 @@ protected:
 	bool m_bShowUI, m_bShowGrid, m_bShowDebugPhysics;
 	std::wstring m_gameplayText;
 
-	GameSampleController* m_pPlayerController;
+	GSPlayerController* m_pPlayerController;
 	MovementController* m_pFreeCameraController;
 	SceneNode* m_pControlledActor;
+
+	GSPlayerCharacter* m_pPlayerCharacter;
 
 	D3D11GridNode* m_pGrid;
 

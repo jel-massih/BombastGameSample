@@ -1,17 +1,17 @@
-#include "GameSampleController.h"
-#include "GameSampleEvents.h"
+#include "GSPlayerController.h"
+#include "../GameSampleEvents.h"
 #include "Graphics3D/SceneNode.h"
 
 const float ACTOR_ACCELERATION = 1.0f;
 const float ACTOR_ANGULAR_ACCELERATION = 22.0f;
 
-GameSampleController::GameSampleController(SceneNode* object)
+GSPlayerController::GSPlayerController(SceneNode* object)
 	:m_pObject(object)
 {
 	memset(m_bKey, 0x00, sizeof(m_bKey));
 }
 
-bool GameSampleController::VOnMouseDown(const Point& mousePos, const int radius, const std::string& buttonName)
+bool GSPlayerController::VOnMouseDown(const Point& mousePos, const int radius, const std::string& buttonName)
 {
 	if (buttonName != "MouseLeft")
 	{
@@ -25,12 +25,12 @@ bool GameSampleController::VOnMouseDown(const Point& mousePos, const int radius,
 	return true;
 }
 
-void GameSampleController::OnUpdate(const float deltaMs)
+void GSPlayerController::OnUpdate(const float deltaMs)
 {
 
 }
 
-bool GameSampleController::VOnKeyDown(const BYTE c)
+bool GSPlayerController::VOnKeyDown(const BYTE c)
 {
 	m_bKey[c] = true;
 
@@ -72,7 +72,7 @@ bool GameSampleController::VOnKeyDown(const BYTE c)
 	return true;
 }
 
-bool GameSampleController::VOnKeyUp(const BYTE c)
+bool GSPlayerController::VOnKeyUp(const BYTE c)
 {
 	m_bKey[c] = false;
 

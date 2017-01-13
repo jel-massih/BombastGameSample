@@ -1,14 +1,13 @@
 #pragma once
-
 #include "BombastEngineStd.h"
 #include "Bombast/interfaces.h"
 
 class SceneNode;
 
-class GameSampleController : public IMouseHandler, public IKeyboardHandler
+class GSPlayerController : public IMouseHandler, public IKeyboardHandler
 {
 public:
-	GameSampleController(SceneNode* object);
+	GSPlayerController(SceneNode* object);
 	void OnUpdate(const float deltaMs);
 
 protected:

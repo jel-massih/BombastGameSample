@@ -7,12 +7,12 @@
     <Filter Include="GameSample">
       <UniqueIdentifier>{bbb58af4-53f4-47e0-b65e-cefa69281451}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameSample\Player">
+      <UniqueIdentifier>{51a3c281-83c3-467d-9fbb-e00880674a54}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\GameSample.cpp">
-      <Filter>GameSample</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\GameSampleController.cpp">
       <Filter>GameSample</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\GameSampleEvents.cpp">
@@ -24,11 +24,14 @@
     <ClCompile Include="..\..\Source\Msvc\GameSampleStd.cpp">
       <Filter>Application</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Player\GSPlayerController.cpp">
+      <Filter>GameSample\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Player\GSPlayerCharacter.cpp">
+      <Filter>GameSample\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\GameSampleController.h">
-      <Filter>GameSample</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\GameSampleEvents.h">
       <Filter>GameSample</Filter>
     </ClInclude>
@@ -40,6 +43,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Msvc\GameSampleStd.h">
       <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Player\GSPlayerController.h">
+      <Filter>GameSample\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Player\GSPlayerCharacter.h">
+      <Filter>GameSample\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
