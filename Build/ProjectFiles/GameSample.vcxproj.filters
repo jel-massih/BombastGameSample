@@ -27,9 +27,6 @@
     <ClCompile Include="..\..\Source\Player\GSPlayerController.cpp">
       <Filter>GameSample\Player</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Player\GSPlayerCharacter.cpp">
-      <Filter>GameSample\Player</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\GameSampleEvents.h">
@@ -45,9 +42,6 @@
       <Filter>Application</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Player\GSPlayerController.h">
-      <Filter>GameSample\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Player\GSPlayerCharacter.h">
       <Filter>GameSample\Player</Filter>
     </ClInclude>
   </ItemGroup>

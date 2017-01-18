@@ -23,7 +23,6 @@
     <ClCompile Include="..\..\Source\GameSampleEvents.cpp" />
     <ClCompile Include="..\..\Source\GameSampleView.cpp" />
     <ClCompile Include="..\..\Source\Msvc\GameSampleStd.cpp" />
-    <ClCompile Include="..\..\Source\Player\GSPlayerCharacter.cpp" />
     <ClCompile Include="..\..\Source\Player\GSPlayerController.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -31,7 +30,6 @@
     <ClInclude Include="..\..\Source\GameSampleView.h" />
     <ClInclude Include="..\..\Source\Msvc\GameSample.h" />
     <ClInclude Include="..\..\Source\Msvc\GameSampleStd.h" />
-    <ClInclude Include="..\..\Source\Player\GSPlayerCharacter.h" />
     <ClInclude Include="..\..\Source\Player\GSPlayerController.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

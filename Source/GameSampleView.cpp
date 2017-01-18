@@ -8,7 +8,6 @@
 #include "Msvc/GameSample.h"
 #include "GameSampleEvents.h"
 #include "Player/GSPlayerController.h"
-#include "Player/GSPlayerCharacter.h"
 
 #include "Utilities/FastDelegate/FastDelegate.h"
 #include "MultiThreading/RealtimeProcess.h"
@@ -22,7 +21,6 @@ HumanView(renderer)
 	m_pPlayerController = 0;
 	m_pFreeCameraController = 0;
 	m_pGrid = nullptr;
-	m_pPlayerCharacter = nullptr;
 	m_bShowUI = true;
 	m_bShowGrid = false;
 	m_bShowDebugPhysics = false;
@@ -35,7 +33,6 @@ GameSampleHumanView::~GameSampleHumanView()
 
 	SAFE_DELETE(m_pFreeCameraController);
 	SAFE_DELETE(m_pPlayerController);
-	SAFE_DELETE(m_pPlayerCharacter);
 }
 
 LRESULT CALLBACK GameSampleHumanView::VOnMsgProc(AppMsg msg)
@@ -172,10 +169,6 @@ bool GameSampleHumanView::VLoadGameDelegate(rapidxml::xml_node<>* pLevelData)
 	m_pGrid = BE_NEW D3D11GridNode(INVALID_ACTOR_ID, nullptr, &Mat4x4::g_Identity);
 	m_pScene->AddChild(INVALID_ACTOR_ID, m_pGrid);
 	m_pGrid->SetVisible(m_bShowGrid);
-
-	m_pPlayerCharacter = BE_NEW GSPlayerCharacter;
-	PhysXPhysics* physics = static_cast<PhysXPhysics*>(g_pApp->GetGameLogic()->VGetGamePhysics());
-	m_pPlayerCharacter->Initialize(physics->GetPxControllerManager(), physics->GetDefaultPxMaterial());
 
 	m_pScene->VOnRestore();
 

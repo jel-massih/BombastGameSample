@@ -4,7 +4,6 @@
 
 class MovementController;
 class GSPlayerController;
-class GSPlayerCharacter;
 class D3D11GridNode;
 
 class GameSampleHumanView : public HumanView
@@ -28,8 +27,6 @@ protected:
 	GSPlayerController* m_pPlayerController;
 	MovementController* m_pFreeCameraController;
 	SceneNode* m_pControlledActor;
-
-	GSPlayerCharacter* m_pPlayerCharacter;
 
 	D3D11GridNode* m_pGrid;
 
