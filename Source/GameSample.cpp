@@ -5,6 +5,7 @@
 #include "GameSampleEvents.h"
 #include "Actor/TransformComponent.h"
 #include "Actor/PhysicsComponent.h"
+#include "Actor/PhysXCharacterControllerComponent.h"
 #include "Physics/Physics.h"
 
 #include "Msvc\GameSample.h"
@@ -187,10 +188,18 @@ void GameSampleLogic::StartMoveForwardDelegate(EventDataPtr pEventData)
 	Actor* pTarget = VGetActor(pStartForwardData->GetActorId());
 	if (pTarget)
 	{
-		TransformComponent* pTransformComponent = pTarget->GetComponent<TransformComponent>(TransformComponent::g_Name);
-		if (pTransformComponent)
+		PhysXCharacterControllerComponent* pCharacterControllerComponent = pTarget->GetComponent<PhysXCharacterControllerComponent>(PhysXCharacterControllerComponent::g_Name);
+		if (pCharacterControllerComponent)
 		{
-			m_pGamePhysics->VApplyForce(pTransformComponent->GetTransform().GetDirection(), 20, pStartForwardData->GetActorId());
+			//Get LookAt Dir
+			TransformComponent* pTransformComponent = pTarget->GetComponent<TransformComponent>(TransformComponent::g_Name);
+			if (pTransformComponent)
+			{
+				Vec3 forward = pTransformComponent->GetLookAt();
+				forward.Normalize();
+				forward *= -0.5;
+				pCharacterControllerComponent->SetTargetDisplacement(forward);
+			}
 		}
 	}
 }
@@ -201,10 +210,10 @@ void GameSampleLogic::EndMoveForwardDelegate(EventDataPtr pEventData)
 	Actor* pTarget = VGetActor(pEndForwardData->GetActorId());
 	if (pTarget)
 	{
-		PhysicsComponent* pPhysicsComponent = pTarget->GetComponent<PhysicsComponent>(PhysicsComponent::g_Name);
-		if (pPhysicsComponent)
+		PhysXCharacterControllerComponent* pCharacterControllerComponent = pTarget->GetComponent<PhysXCharacterControllerComponent>(PhysXCharacterControllerComponent::g_Name);
+		if (pCharacterControllerComponent)
 		{
-			pPhysicsComponent->RemoveAcceleration();
+			pCharacterControllerComponent->SetTargetDisplacement(Vec3(0));
 		}
 	}
 }
