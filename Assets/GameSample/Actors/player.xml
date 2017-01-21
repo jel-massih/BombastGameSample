@@ -11,4 +11,7 @@
 			<Material path="EngineResources.Materials.box_mat.bmtl"/>
         </Materials>
     </MeshRenderComponent>
+
+    <PhysXCharacterControllerComponent>
+    </PhysXCharacterControllerComponent>
 </Actor>
