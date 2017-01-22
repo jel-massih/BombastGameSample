@@ -79,21 +79,21 @@ bool GSPlayerController::VOnKeyUp(const BYTE c)
 	if (c == 'W' || c == 'S')
 	{
 		const ActorId actorId = m_pObject->VGet()->GetActorId();
-		std::shared_ptr<EvtData_EndForward> pEvent(BE_NEW EvtData_EndForward(actorId));
+		std::shared_ptr<EvtData_EndForward> pEvent(BE_NEW EvtData_EndForward(actorId, c == 'S'));
 		IEventManager::Get()->VQueueEvent(pEvent);
 	}
 
 	if (c == 'A' || c == 'D')
 	{
 		const ActorId actorId = m_pObject->VGet()->GetActorId();
-		std::shared_ptr<EvtData_EndRight> pEvent(BE_NEW EvtData_EndRight(actorId));
+		std::shared_ptr<EvtData_EndRight> pEvent(BE_NEW EvtData_EndRight(actorId, c == 'A'));
 		IEventManager::Get()->VQueueEvent(pEvent);
 	}
 
 	if (c == 'Z' || c == 'X')
 	{
 		const ActorId actorId = m_pObject->VGet()->GetActorId();
-		std::shared_ptr<EvtData_EndUp> pEvent(BE_NEW EvtData_EndUp(actorId));
+		std::shared_ptr<EvtData_EndUp> pEvent(BE_NEW EvtData_EndUp(actorId, c == 'Z'));
 		IEventManager::Get()->VQueueEvent(pEvent);
 	}
 

@@ -103,15 +103,17 @@ class BaseMovementEndEvent : public BaseEventData
 {
 protected:
 	ActorId m_id;
+	bool m_reverse;
 
 public:
 	BaseMovementEndEvent(void) :
-		m_id(INVALID_ACTOR_ID)
+		m_id(INVALID_ACTOR_ID),
+		m_reverse(false)
 	{
 	}
 
-	BaseMovementEndEvent(ActorId id) :
-		m_id(id)
+	BaseMovementEndEvent(ActorId id, bool bReverse) :
+		m_id(id), m_reverse(bReverse)
 	{
 	}
 
@@ -120,17 +122,21 @@ public:
 	virtual void VSerialize(std::ostrstream & out) const
 	{
 		out << m_id << " ";
+		out << m_reverse << " ";
 	}
 
 	virtual void VDeserialize(std::istrstream& in)
 	{
 		in >> m_id;
+		in >> m_reverse;
 	}
 
 	ActorId GetActorId(void) const
 	{
 		return m_id;
 	}
+
+	bool GetReverse() const { return m_reverse; }
 
 	void Set(ActorId id)
 	{
@@ -172,14 +178,14 @@ public:
 		return sEventType;
 	}
 
-	EvtData_EndUp(ActorId actorId) :
-		BaseMovementEndEvent(actorId)
+	EvtData_EndUp(ActorId actorId, bool bReverse) :
+		BaseMovementEndEvent(actorId, bReverse)
 	{
 	}
 
 	virtual EventDataPtr VCopy() const
 	{
-		return EventDataPtr(BE_NEW EvtData_EndUp(m_id));
+		return EventDataPtr(BE_NEW EvtData_EndUp(m_id, m_reverse));
 	}
 	virtual const char* GetName(void) const
 	{
@@ -221,14 +227,14 @@ public:
 		return sEventType;
 	}
 
-	EvtData_EndRight(ActorId actorId) :
-		BaseMovementEndEvent(actorId)
+	EvtData_EndRight(ActorId actorId, bool bReverse) :
+		BaseMovementEndEvent(actorId, bReverse)
 	{
 	}
 
 	virtual EventDataPtr VCopy() const
 	{
-		return EventDataPtr(BE_NEW EvtData_EndRight(m_id));
+		return EventDataPtr(BE_NEW EvtData_EndRight(m_id, m_reverse));
 	}
 	virtual const char* GetName(void) const
 	{
@@ -270,14 +276,14 @@ public:
 		return sEventType;
 	}
 
-	EvtData_EndForward(ActorId actorId) :
-		BaseMovementEndEvent(actorId)
+	EvtData_EndForward(ActorId actorId, bool bReverse) :
+		BaseMovementEndEvent(actorId, bReverse)
 	{
 	}
 
 	virtual EventDataPtr VCopy() const
 	{
-		return EventDataPtr(BE_NEW EvtData_EndForward(m_id));
+		return EventDataPtr(BE_NEW EvtData_EndForward(m_id, m_reverse));
 	}
 	virtual const char* GetName(void) const
 	{
@@ -319,14 +325,14 @@ public:
 		return sEventType;
 	}
 
-	EvtData_EndTurnRight(ActorId actorId) :
-		BaseMovementEndEvent(actorId)
+	EvtData_EndTurnRight(ActorId actorId, bool bReverse) :
+		BaseMovementEndEvent(actorId, bReverse)
 	{
 	}
 
 	virtual EventDataPtr VCopy() const
 	{
-		return EventDataPtr(BE_NEW EvtData_EndTurnRight(m_id));
+		return EventDataPtr(BE_NEW EvtData_EndTurnRight(m_id, m_reverse));
 	}
 	virtual const char* GetName(void) const
 	{
@@ -368,14 +374,14 @@ public:
 		return sEventType;
 	}
 
-	EvtData_EndTurnUp(ActorId actorId) :
-		BaseMovementEndEvent(actorId)
+	EvtData_EndTurnUp(ActorId actorId, bool bReverse) :
+		BaseMovementEndEvent(actorId, bReverse)
 	{
 	}
 
 	virtual EventDataPtr VCopy() const
 	{
-		return EventDataPtr(BE_NEW EvtData_EndTurnUp(m_id));
+		return EventDataPtr(BE_NEW EvtData_EndTurnUp(m_id, m_reverse));
 	}
 	virtual const char* GetName(void) const
 	{

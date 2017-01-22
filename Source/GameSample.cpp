@@ -172,14 +172,39 @@ void GameSampleLogic::StartMoveRightDelegate(EventDataPtr pEventData)
 	Actor* pTarget = VGetActor(pStartRightData->GetActorId());
 	if (pTarget)
 	{
-		TransformComponent* pTransformComponent = pTarget->GetComponent<TransformComponent>(TransformComponent::g_Name);
-		pTransformComponent->MoveLeft(pStartRightData->GetAcceleration());
+		PhysXCharacterControllerComponent* pCharacterControllerComponent = pTarget->GetComponent<PhysXCharacterControllerComponent>(PhysXCharacterControllerComponent::g_Name);
+		if (pCharacterControllerComponent)
+		{
+			if (pStartRightData->GetAcceleration() > 0) {
+				pCharacterControllerComponent->SetRight(true);
+			}
+			else {
+				pCharacterControllerComponent->SetLeft(true);
+			}
+		}
 	}
 }
 
 void GameSampleLogic::EndMoveRightDelegate(EventDataPtr pEventData)
 {
 	std::shared_ptr<EvtData_EndRight> pEndRightData = std::static_pointer_cast<EvtData_EndRight>(pEventData);
+
+	Actor* pTarget = VGetActor(pEndRightData->GetActorId());
+	if (pTarget)
+	{
+		PhysXCharacterControllerComponent* pCharacterControllerComponent = pTarget->GetComponent<PhysXCharacterControllerComponent>(PhysXCharacterControllerComponent::g_Name);
+		if (pCharacterControllerComponent)
+		{
+			if (pEndRightData->GetReverse())
+			{
+				pCharacterControllerComponent->SetLeft(false);
+			}
+			else
+			{
+				pCharacterControllerComponent->SetRight(false);
+			}
+		}
+	}
 }
 
 void GameSampleLogic::StartMoveForwardDelegate(EventDataPtr pEventData)
@@ -191,14 +216,13 @@ void GameSampleLogic::StartMoveForwardDelegate(EventDataPtr pEventData)
 		PhysXCharacterControllerComponent* pCharacterControllerComponent = pTarget->GetComponent<PhysXCharacterControllerComponent>(PhysXCharacterControllerComponent::g_Name);
 		if (pCharacterControllerComponent)
 		{
-			//Get LookAt Dir
-			TransformComponent* pTransformComponent = pTarget->GetComponent<TransformComponent>(TransformComponent::g_Name);
-			if (pTransformComponent)
+			if (pStartForwardData->GetAcceleration() < 0) 
 			{
-				Vec3 forward = pTransformComponent->GetLookAt();
-				forward.Normalize();
-				forward *= -0.5;
-				pCharacterControllerComponent->SetTargetDisplacement(forward);
+				pCharacterControllerComponent->SetForward(true);
+			}
+			else 
+			{
+				pCharacterControllerComponent->SetBackward(true);
 			}
 		}
 	}
@@ -213,7 +237,14 @@ void GameSampleLogic::EndMoveForwardDelegate(EventDataPtr pEventData)
 		PhysXCharacterControllerComponent* pCharacterControllerComponent = pTarget->GetComponent<PhysXCharacterControllerComponent>(PhysXCharacterControllerComponent::g_Name);
 		if (pCharacterControllerComponent)
 		{
-			pCharacterControllerComponent->SetTargetDisplacement(Vec3(0));
+			if (pEndForwardData->GetReverse()) 
+			{
+				pCharacterControllerComponent->SetBackward(false);
+			}
+			else
+			{
+				pCharacterControllerComponent->SetForward(false);
+			}
 		}
 	}
 }
