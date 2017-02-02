@@ -54,6 +54,7 @@ bool GSPlayerController::VOnMouseMove(const Point& pos, const int radius)
 void GSPlayerController::OnUpdate(const float deltaMs)
 {
 	Mat4x4 rotationMatrix = Mat4x4::g_Identity;
+	Mat4x4 positionMatrix = Mat4x4::g_Identity;
 
 	if (m_targetPitch >= 360)
 	{
@@ -74,7 +75,11 @@ void GSPlayerController::OnUpdate(const float deltaMs)
 	m_yaw = XMConvertToRadians(m_targetYaw);
 
 	rotationMatrix.BuildYawPitchRoll(m_yaw, m_pitch, 0.0f);
-	m_pObject->VGet().ToWorld().GetPosition();
+	positionMatrix.BuildTranslation(m_pObject->VGet()->ToWorld().GetPosition());
+
+	m_matToWorld = rotationMatrix * positionMatrix;
+	m_matFromWorld = m_matToWorld.Inverse();
+
 	m_pObject->VSetTransform(&m_matToWorld);
 }
 
