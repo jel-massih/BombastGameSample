@@ -188,7 +188,7 @@ void GameSampleHumanView::VSetControlledActor(ActorId actorId)
 
 	SAFE_DELETE(m_pPlayerController);
 
-	m_pPlayerController = BE_NEW GSPlayerController(m_pControlledActor);
+	m_pPlayerController = BE_NEW GSPlayerController(m_pControlledActor, XMConvertToRadians(-15), XMConvertToRadians(30));
 	m_pKeyboardHandler = m_pPlayerController;
 	m_pMouseHandler = m_pPlayerController;
 

@@ -5,10 +5,13 @@
 const float ACTOR_ACCELERATION = 1.0f;
 const float ACTOR_ANGULAR_ACCELERATION = 22.0f;
 
-GSPlayerController::GSPlayerController(SceneNode* object)
-	:m_pObject(object)
+GSPlayerController::GSPlayerController(SceneNode* object, float initialYaw, float initialPitch)
+	:m_pObject(object), m_turnRate(100)
 {
 	memset(m_bKey, 0x00, sizeof(m_bKey));
+
+	m_targetYaw = m_yaw = XMConvertToDegrees(-initialYaw);
+	m_targetPitch = m_pitch = XMConvertToDegrees(initialPitch);
 }
 
 bool GSPlayerController::VOnMouseDown(const Point& mousePos, const int radius, const std::string& buttonName)
@@ -25,9 +28,54 @@ bool GSPlayerController::VOnMouseDown(const Point& mousePos, const int radius, c
 	return true;
 }
 
+bool GSPlayerController::VOnMouseMove(const Point& pos, const int radius)
+{
+	Point screenSize = g_pApp->GetScreenSize();
+	const int mouseDeltaX = pos.GetX() - (screenSize.GetX() / 2);
+	const int mouseDeltaY = pos.GetY() - (screenSize.GetY() / 2);
+	POINT pt;
+	pt.x = (screenSize.GetX() / 2);
+	pt.y = (screenSize.GetY() / 2);
+	ClientToScreen(g_pApp->GetHwnd(), &pt);
+	SetCursorPos(pt.x, pt.y);
+
+	float lookRightDeg = (float)(mouseDeltaX * 0.1);
+	float lookUpDeg = (float)(mouseDeltaY * 0.1);
+
+	static const float zenithMinDeclination = 1;
+	static const float zenithMaxDeclination = 180 - 1;
+
+	m_targetPitch += lookRightDeg;
+	m_targetYaw += lookUpDeg;
+
+	return true;
+}
+
 void GSPlayerController::OnUpdate(const float deltaMs)
 {
+	Mat4x4 rotationMatrix = Mat4x4::g_Identity;
 
+	if (m_targetPitch >= 360)
+	{
+		m_targetPitch = 0;
+	}
+
+	if (m_targetYaw >= 90)
+	{
+		m_targetYaw = 90;
+	}
+
+	if (m_targetYaw <= -90)
+	{
+		m_targetYaw = -90;
+	}
+
+	m_pitch = XMConvertToRadians(m_targetPitch);
+	m_yaw = XMConvertToRadians(m_targetYaw);
+
+	rotationMatrix.BuildYawPitchRoll(m_yaw, m_pitch, 0.0f);
+	m_pObject->VGet().ToWorld().GetPosition();
+	m_pObject->VSetTransform(&m_matToWorld);
 }
 
 bool GSPlayerController::VOnKeyDown(const BYTE c)
