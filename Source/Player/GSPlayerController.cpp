@@ -61,14 +61,14 @@ void GSPlayerController::OnUpdate(const float deltaMs)
 		m_targetPitch = 0;
 	}
 
-	if (m_targetYaw >= 90)
+	if (m_targetYaw >= 70)
 	{
-		m_targetYaw = 90;
+		m_targetYaw = 70;
 	}
 
-	if (m_targetYaw <= -90)
+	if (m_targetYaw <= -50)
 	{
-		m_targetYaw = -90;
+		m_targetYaw = -50;
 	}
 
 	m_pitch = XMConvertToRadians(m_targetPitch);
@@ -80,7 +80,7 @@ void GSPlayerController::OnUpdate(const float deltaMs)
 	m_matToWorld = rotationMatrix * positionMatrix;
 	m_matFromWorld = m_matToWorld.Inverse();
 
-	m_pObject->VSetTransform(&m_matToWorld);
+	m_pObject->VSetTransform(&m_matToWorld, &m_matFromWorld);
 }
 
 bool GSPlayerController::VOnKeyDown(const BYTE c)
